@@ -49,7 +49,7 @@ public class FirebaseAnalyticsPlugin extends CordovaPlugin {
 
             return true;
         } else if ("setCurrentScreen".equals(action)) {
-            setCurrentScreen(callbackContext, args.getString(0));
+            setCurrentScreen(callbackContext, args.getString(0), args.getString(1));
 
             return true;
         }
@@ -95,13 +95,13 @@ public class FirebaseAnalyticsPlugin extends CordovaPlugin {
         callbackContext.success();
     }
 
-    private void setCurrentScreen(final CallbackContext callbackContext, final String screenName) {
+    private void setCurrentScreen(final CallbackContext callbackContext, final String screenName, final String screenClass) {
         cordova.getActivity().runOnUiThread(new Runnable() {
             public void run() {
                 firebaseAnalytics.setCurrentScreen(
                     cordova.getActivity(),
                     screenName,
-                    null
+                    screenClass
                 );
 
                 callbackContext.success();
