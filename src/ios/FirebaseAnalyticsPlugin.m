@@ -56,7 +56,14 @@
     NSString* scrName = [command.arguments objectAtIndex:0];
     NSString* scrClass = [command.arguments objectAtIndex:1];
 
-    [FIRAnalytics setScreenName:scrName screenClass:scrClass];
+    if (scrClass == (id)[NSNull null] || scrClass.length == 0 )
+    {
+        [FIRAnalytics setScreenName:scrName screenClass:nil];
+    }
+    else
+    {
+        [FIRAnalytics setScreenName:scrName screenClass:scrClass];
+    }
 
     CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
