@@ -1,13 +1,11 @@
 #import "FirebaseAnalyticsPlugin.h"
-@import FirebaseAnalytics;
+@import Firebase;
 
 
 @implementation FirebaseAnalyticsPlugin
 
 - (void)pluginInitialize {
     NSLog(@"Starting Firebase Analytics plugin");
-
-    [FIROptions defaultOptions].deepLinkURLScheme = [FIROptions defaultOptions].bundleID;
 
     if(![FIRApp defaultApp]) {
         [FIRApp configure];
