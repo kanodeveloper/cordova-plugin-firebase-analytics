@@ -1,7 +1,7 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
 xmlns:android="http://schemas.android.com/apk/res/android"
            id="cordova-plugin-firebase-analytics-ka"
-      version="1.0.9">
+      version="1.0.10">
 
     <name>FirebaseAnalyticsPlugin</name>
     <description>Cordova plugin for Firebase Analytics</description>
@@ -31,13 +31,12 @@ xmlns:android="http://schemas.android.com/apk/res/android"
         <header-file src="src/ios/FirebaseAnalyticsPlugin.h" />
         <source-file src="src/ios/FirebaseAnalyticsPlugin.m" />
 
-        <preference name="POD_VERSION" default="5.6"/>
         <podspec>
             <config>
                 <source url="https://github.com/CocoaPods/Specs.git"/>
             </config>
             <pods>
-                <pod name="Firebase/Core" spec="~> $POD_VERSION" />
+                <pod name="Firebase/Core" spec="~> 6.3" />
             </pods>
         </podspec>
 
